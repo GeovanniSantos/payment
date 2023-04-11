@@ -1,0 +1,29 @@
+package com.tools.payment.resources;
+
+import java.net.URI;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import com.tools.payment.dto.TransacaoDTO;
+import com.tools.payment.entities.Transacao;
+import com.tools.payment.services.TransacaoService;
+
+@RestController
+public class TransacaoResource {
+
+  @Autowired
+  private TransacaoService transacaoService;
+
+  @PostMapping("/transacoes")
+  public ResponseEntity<Void> salvar(@RequestBody TransacaoDTO dto) {
+    Transacao transacao = transacaoService.salvar(dto);
+    URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(transacao.getId()).toUri();
+    return ResponseEntity.created(uri).build();
+  }
+
+}

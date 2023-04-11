@@ -1,0 +1,7 @@
+package com.tools.payment.enums;
+
+public enum TipoPgamentoEnum {
+	AVISTA,
+	PARCELADO_LOJA,
+	PARCELADO_EMISSOR
+}

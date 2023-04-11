@@ -1,0 +1,53 @@
+package com.tools.payment.dto;
+
+import com.tools.payment.entities.Transacao;
+
+public class TransacaoDTO {
+	private String id;
+	private String cartao;
+	private String descricao;
+	private String formaPagamento;
+	
+	//constructors
+	public TransacaoDTO(String id, String cartao, String descricao, String formaPagamento) {
+		super();
+		this.id = id;
+		this.cartao = cartao;
+		this.descricao = descricao;
+		this.formaPagamento = formaPagamento;
+	}
+	
+	//getters and setters
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getCartao() {
+		return cartao;
+	}
+
+	public void setCartao(String cartao) {
+		this.cartao = cartao;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public String getFormaPagamento() {
+		return formaPagamento;
+	}
+
+	public void setFormaPagamento(String formaPagamento) {
+		this.formaPagamento = formaPagamento;
+	}
+	
+}

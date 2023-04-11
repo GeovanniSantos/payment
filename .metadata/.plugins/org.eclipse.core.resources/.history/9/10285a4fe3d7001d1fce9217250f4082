@@ -1,0 +1,39 @@
+package com.tools.payment.services;
+
+import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.tools.payment.dto.DescricaoDTO;
+import com.tools.payment.dto.TransacaoDTO;
+import com.tools.payment.entities.Descricao;
+import com.tools.payment.entities.Transacao;
+import com.tools.payment.enums.StatusEnum;
+import com.tools.payment.repositories.TransacaoRepository;
+
+@Service
+public class TransacaoService {
+
+	@Autowired
+	private TransacaoRepository transacaoRepository;
+	
+	public Transacao salvar(TransacaoDTO transacaoDTO) {
+		Transacao transacao = new Transacao();
+        transacao.setCartao(transacaoDTO.getCartao());
+        transacao.setTipoPagamento(transacaoDTO.getFormaPagamento().getTipo());
+        transacao.setParcelas(transacaoDTO.getFormaPagamento().getParcelas());
+
+        DescricaoDTO descricaoDTO = transacaoDTO.getDescricao();
+        Descricao descricao = new Descricao();
+        descricao.setValor(new BigDecimal(descricaoDTO.getValor()));
+        descricao.setDataHora(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse(descricaoDTO.getDataHora()));
+        descricao.setEstabelecimento(descricaoDTO.getEstabelecimento());
+        transacao.setDescricao(descricao);
+
+        transacao.setStatus(StatusEnum.AUTORIZADO);
+
+        return transacaoRepository.save(transacao);
+	}
+}

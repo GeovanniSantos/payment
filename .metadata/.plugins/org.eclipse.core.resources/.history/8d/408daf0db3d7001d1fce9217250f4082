@@ -1,0 +1,5 @@
+package com.tools.payment.entities;
+
+public enum TipoPagamentoEnum {
+
+}

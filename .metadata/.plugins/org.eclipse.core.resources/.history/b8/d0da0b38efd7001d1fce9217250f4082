@@ -1,0 +1,31 @@
+package com.tools.payment.services;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.tools.payment.dto.TransacaoDTO;
+import com.tools.payment.entities.Transacao;
+import com.tools.payment.repositories.TransacaoRepository;
+
+@Service
+public class TransacaoService {
+
+  @Autowired
+  private TransacaoRepository transacaoRepository;
+
+  public Transacao salvar(TransacaoDTO dto) {
+    Transacao transacao = new Transacao();
+    transacao.setCartao(dto.getCartao());
+    transacao.setDescricao(dto.getDescricao());
+    transacao.setValor(dto.getValor());
+    transacao.setDataHora(LocalDateTime.parse(dto.getDataHora(), DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
+    transacao.setEstabelecimento(dto.getEstabelecimento());
+    transacao.setTipoPagamento(dto.getTipoPagamento());
+    transacao.setStatus(dto.getStatus());
+    return transacaoRepository.save(transacao);
+  }
+
+}

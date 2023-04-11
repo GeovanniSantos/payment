@@ -1,0 +1,56 @@
+package com.tools.payment.entities;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+import jakarta.persistence.Embeddable;
+
+@Embeddable
+public class Descricao implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+	private BigDecimal valor;
+	private LocalDateTime dataHora;
+	private String estabelicimento;
+	
+	
+	//constructors
+	public Descricao(BigDecimal valor, LocalDateTime dataHora, String estabelicimento) {
+		super();
+		this.valor = valor;
+		this.dataHora = dataHora;
+		this.estabelicimento = estabelicimento;
+	}
+
+	//getters and setters
+	public BigDecimal getValor() {
+		return valor;
+	}
+
+
+	public void setValor(BigDecimal valor) {
+		this.valor = valor;
+	}
+
+
+	public LocalDateTime getDataHora() {
+		return dataHora;
+	}
+
+
+	public void setDataHora(LocalDateTime dataHora) {
+		this.dataHora = dataHora;
+	}
+
+
+	public String getEstabelicimento() {
+		return estabelicimento;
+	}
+
+
+	public void setEstabelicimento(String estabelicimento) {
+		this.estabelicimento = estabelicimento;
+	}
+	
+}

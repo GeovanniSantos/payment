@@ -1,0 +1,28 @@
+import org.springframework.context.annotation.Description;
+
+import jakarta.persistence.Embedded;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Enumerated;
+
+@Entity
+@Table(name = "transacao")
+public class Tr {
+
+    @Id
+    private String id;
+
+    private String cartao;
+
+    @Embedded
+    private Description descricao;
+
+    @Enumerated(EnumType.STRING)
+    private PaymentType formaPagamento;
+
+    private int parcelas;
+
+    @Enumerated(EnumType.STRING)
+    private TransactionStatus status;
+
+    // getters and setters
+}

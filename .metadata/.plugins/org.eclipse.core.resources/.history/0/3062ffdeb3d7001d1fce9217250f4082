@@ -1,0 +1,16 @@
+package com.tools.payment.dto;
+
+import com.tools.payment.entities.Transacao;
+
+public class TransacaoDTO {
+	private String cartao;
+	private String descricao;
+	private String formaPagamento;
+	
+	public TransacaoDTO(Transacao transacao) {
+		this.cartao = transacao.getCartao();
+		this.descricao = transacao.getDescricao();
+		this.formaPagamento = transacao.getFormaPagamento().getTipo();
+	}
+
+}

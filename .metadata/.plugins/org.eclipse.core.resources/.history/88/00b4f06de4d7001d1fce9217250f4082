@@ -1,0 +1,6 @@
+package com.tools.payment.enums;
+
+public enum TipoPagamentoEnum {
+	AUTORIZADO,
+	NEGADO
+}

@@ -1,0 +1,95 @@
+package com.tools.payment.entities;
+
+import java.io.Serializable;
+
+import com.tools.payment.enums.StatusEnum;
+
+import jakarta.persistence.Embedded;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="transacao")
+public class Transacao implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	private String cartao;
+	private String idTransacao;
+	
+	@Embedded
+	private Descricao descricao;
+	
+	@Embedded
+	private FormaPagamento formaPagamento;
+	
+	@Enumerated(EnumType.STRING)
+	private StatusEnum status;
+	
+	//constructors
+	public Transacao() {
+	}
+	
+
+	public Transacao(Long id, String cartao, String idTransacao, Descricao descricao, FormaPagamento formaPagamento,
+			StatusEnum status) {
+		super();
+		this.id = id;
+		this.cartao = cartao;
+		this.idTransacao = idTransacao;
+		this.descricao = descricao;
+		this.formaPagamento = formaPagamento;
+		this.status = status;
+	}
+
+
+	//getters and setters
+	public String getCartao() {
+		return cartao;
+	}
+
+	public void setCartao(String cartao) {
+		this.cartao = cartao;
+	}
+
+	public String getIdTransacao() {
+		return idTransacao;
+	}
+
+	public void setIdTransacao(String idTransacao) {
+		this.idTransacao = idTransacao;
+	}
+
+	public Descricao getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(Descricao descricao) {
+		this.descricao = descricao;
+	}
+
+	public FormaPagamento getFormaPagamento() {
+		return formaPagamento;
+	}
+
+	public void setFormaPagamento(FormaPagamento formaPagamento) {
+		this.formaPagamento = formaPagamento;
+	}
+
+	public StatusEnum getStatus() {
+		return status;
+	}
+
+	public void setStatus(StatusEnum status) {
+		this.status = status;
+	}
+}

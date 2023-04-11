@@ -1,0 +1,95 @@
+package com.tools.payment.entities;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
+public class Transacao {
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+
+  private String cartao;
+  
+  private String descricao;
+  
+  private BigDecimal valor;
+  
+  private LocalDateTime dataHora;
+  
+  private String estabelecimento;
+  
+  private TipoPagamento tipoPagamento;
+  
+  private StatusTransacao status;
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public String getCartao() {
+    return cartao;
+  }
+
+  public void setCartao(String cartao) {
+    this.cartao = cartao;
+  }
+
+  public String getDescricao() {
+    return descricao;
+  }
+
+  public void setDescricao(String descricao) {
+    this.descricao = descricao;
+  }
+
+  public BigDecimal getValor() {
+    return valor;
+  }
+
+  public void setValor(BigDecimal valor) {
+    this.valor = valor;
+  }
+
+  public LocalDateTime getDataHora() {
+    return dataHora;
+  }
+
+  public void setDataHora(LocalDateTime dataHora) {
+    this.dataHora = dataHora;
+  }
+
+  public String getEstabelecimento() {
+    return estabelecimento;
+  }
+
+  public void setEstabelecimento(String estabelecimento) {
+    this.estabelecimento = estabelecimento;
+  }
+
+  public TipoPagamento getTipoPagamento() {
+    return tipoPagamento;
+  }
+
+  public void setTipoPagamento(TipoPagamento tipoPagamento) {
+    this.tipoPagamento = tipoPagamento;
+  }
+
+  public StatusTransacao getStatus() {
+    return status;
+  }
+
+  public void setStatus(StatusTransacao status) {
+    this.status = status;
+  }
+}

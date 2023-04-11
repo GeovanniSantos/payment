@@ -1,0 +1,12 @@
+package com.tools.payment.dto;
+
+import com.tools.payment.entities.Transacao;
+
+public class TransacaoDTO {
+	private String cartao;
+	private String descricao;
+	private String formaPagamento;
+	
+	//constructors
+	//getters and setters	
+}

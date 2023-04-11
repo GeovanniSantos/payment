@@ -1,0 +1,5 @@
+package com.tools.payment.dto;
+
+public class FormaPagamentoDTO {
+
+}

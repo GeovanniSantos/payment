@@ -1,0 +1,104 @@
+package com.tools.payment.dto;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+import com.tools.payment.entities.Transacao;
+import com.tools.payment.enums.StatusTransacaoEnum;
+import com.tools.payment.enums.TipoPagamentoEnum;
+
+public class TransacaoDTO {
+
+	private Long id;
+	private String cartao;
+	private String descricao;
+	private BigDecimal valor;
+	private CharSequence dataHora;
+	private String estabelecimento;
+	private TipoPagamentoEnum tipoPagamento;
+	private StatusTransacaoEnum status;
+
+	public TransacaoDTO() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public TransacaoDTO(Long id, String cartao, String descricao, BigDecimal valor, CharSequence dataHora,
+			String estabelecimento, TipoPagamentoEnum tipoPagamento, StatusTransacaoEnum status) {
+		super();
+		this.id = id;
+		this.cartao = cartao;
+		this.descricao = descricao;
+		this.valor = valor;
+		this.dataHora = dataHora;
+		this.estabelecimento = estabelecimento;
+		this.tipoPagamento = tipoPagamento;
+		this.status = status;
+	}
+
+
+	// getters and setters
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getCartao() {
+		return cartao;
+	}
+
+	public void setCartao(String cartao) {
+		this.cartao = cartao;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public BigDecimal getValor() {
+		return valor;
+	}
+
+	public void setValor(BigDecimal valor) {
+		this.valor = valor;
+	}
+
+	public CharSequence getDataHora() {
+		return dataHora;
+	}
+
+	public void setDataHora(CharSequence dataHora) {
+		this.dataHora = dataHora;
+	}
+
+	public String getEstabelecimento() {
+		return estabelecimento;
+	}
+
+	public void setEstabelecimento(String estabelecimento) {
+		this.estabelecimento = estabelecimento;
+	}
+
+	public TipoPagamentoEnum getTipoPagamento() {
+		return tipoPagamento;
+	}
+
+	public void setTipoPagamento(TipoPagamentoEnum tipoPagamento) {
+		this.tipoPagamento = tipoPagamento;
+	}
+
+	public StatusTransacaoEnum getStatus() {
+		return status;
+	}
+
+	public void setStatus(StatusTransacaoEnum status) {
+		this.status = status;
+	}
+
+}

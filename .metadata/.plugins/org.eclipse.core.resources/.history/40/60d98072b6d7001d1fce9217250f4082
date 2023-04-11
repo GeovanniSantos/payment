@@ -1,0 +1,52 @@
+package com.tools.payment.entities;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+public class Descricao {
+	private BigDecimal valor;
+	private LocalDateTime dataHora;
+	private String estabelicimento;
+	
+	
+	//constructors, getters and setters
+	public Descricao(BigDecimal valor, LocalDateTime dataHora, String estabelicimento) {
+		super();
+		this.valor = valor;
+		this.dataHora = dataHora;
+		this.estabelicimento = estabelicimento;
+	}
+
+
+	public BigDecimal getValor() {
+		return valor;
+	}
+
+
+	public void setValor(BigDecimal valor) {
+		this.valor = valor;
+	}
+
+
+	public LocalDateTime getDataHora() {
+		return dataHora;
+	}
+
+
+	public void setDataHora(LocalDateTime dataHora) {
+		this.dataHora = dataHora;
+	}
+
+
+	public String getEstabelicimento() {
+		return estabelicimento;
+	}
+
+
+	public void setEstabelicimento(String estabelicimento) {
+		this.estabelicimento = estabelicimento;
+	}
+	
+	
+	
+}

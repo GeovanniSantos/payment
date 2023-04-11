@@ -1,0 +1,38 @@
+package com.tools.payment.entities;
+
+import com.tools.payment.enums.TipoPagamentoEnum;
+
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+
+public class FormaPagamento {
+	
+	@Enumerated(EnumType.STRING)
+	private TipoPagamentoEnum tipo;
+	
+	private Integer parcelas;
+	
+	//constructors
+	public FormaPagamento(TipoPagamentoEnum tipo, Integer parcelas) {
+		super();
+		this.tipo = tipo;
+		this.parcelas = parcelas;
+	}
+	
+	// getters and setters
+	public TipoPagamentoEnum getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(TipoPagamentoEnum tipo) {
+		this.tipo = tipo;
+	}
+
+	public Integer getParcelas() {
+		return parcelas;
+	}
+
+	public void setParcelas(Integer parcelas) {
+		this.parcelas = parcelas;
+	}
+}

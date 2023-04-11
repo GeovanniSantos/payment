@@ -1,0 +1,22 @@
+package com.tools.payment.dto;
+
+public class FormaPagamentoDTO {
+	    private TipoPagamento tipo;
+	    private Integer parcelas;
+
+	    public TipoPagamento getTipo() {
+	        return tipo;
+	    }
+
+	    public void setTipo(TipoPagamento tipo) {
+	        this.tipo = tipo;
+	    }
+
+	    public Integer getParcelas() {
+	        return parcelas;
+	    }
+
+	    public void setParcelas(Integer parcelas) {
+	        this.parcelas = parcelas;
+	    }
+	}
