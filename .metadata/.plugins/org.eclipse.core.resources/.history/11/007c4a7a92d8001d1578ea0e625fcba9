@@ -1,0 +1,35 @@
+package com.tools.payment.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.tools.payment.entities.Transacao;
+import com.tools.payment.repositories.TransacaoRepository;
+
+@Service
+public class TransacaoService {
+
+	private final TransacaoRepository transacaoRepository;
+
+    @Autowired
+    public TransacaoService(TransacaoRepository transacaoRepository) {
+        this.transacaoRepository = transacaoRepository;
+    }
+
+    public List<Transacao> buscarTransacoes() {
+        return transacaoRepository.findAll();
+    }
+
+    public Transacao criarTransacao(TransacaoDTO transacaoDTO) {
+        Transacao transacao = new Transacao();
+        transacao.setCartao(transacaoDTO.getCartao());
+        transacao.setTipo(transacaoDTO.getTipo());
+        transacao.setParcelas(transacaoDTO.getParcelas());
+        transacao.setValor(transacaoDTO.getValor());
+        transacao.setStatus(transacaoDTO.getStatus());
+        transacao.setDataHora(LocalDateTime.now());
+        transacao.setEstabelecimento(transacaoDTO.getEstabelecimento());
+
+        return transacaoRepository.save(transacao);
+    }
+}

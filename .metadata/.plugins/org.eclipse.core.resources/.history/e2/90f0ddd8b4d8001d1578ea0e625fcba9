@@ -1,0 +1,13 @@
+package com.tools.payment.entities;
+
+public class Descricao {
+
+    private BigDecimal valor;
+    private LocalDateTime dataHora;
+    private String estabelecimento;
+
+    // construtores, getters e setters
+    
+    
+}
+

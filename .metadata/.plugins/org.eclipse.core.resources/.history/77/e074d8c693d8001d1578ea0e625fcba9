@@ -1,0 +1,36 @@
+package com.tools.payment.services;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
+
+import com.tools.payment.dto.TransacaoDTO;
+import com.tools.payment.entities.Transacao;
+import com.tools.payment.repositories.TransacaoRepository;
+
+@@Service
+public class TransacaoService {
+    private final TransacaoRepository transacaoRepository;
+    private final ModelMapper modelMapper;
+
+    public TransacaoService(TransacaoRepository transacaoRepository, ModelMapper modelMapper) {
+        this.transacaoRepository = transacaoRepository;
+        this.modelMapper = modelMapper;
+    }
+
+    public TransacaoDTO criarTransacao(TransacaoDTO transacaoDTO) {
+        Transacao transacao = modelMapper.map(transacaoDTO, Transacao.class);
+        Transacao transacaoSalva = transacaoRepository.save(transacao);
+        return modelMapper.map(transacaoSalva, TransacaoDTO.class);
+    }
+
+    public List<TransacaoDTO> listarTransacoes() {
+        List<Transacao> transacoes = (List<Transacao>) transacaoRepository.findAll();
+        return transacoes.stream()
+                .map(transacao -> modelMapper.map(transacao, TransacaoDTO.class))
+                .collect(Collectors.toList());
+    }
+}
+

@@ -1,0 +1,30 @@
+package com.tools.payment.services;
+
+import org.springframework.stereotype.Service;
+
+import com.tools.payment.dto.TransacaoDTO;
+import com.tools.payment.entities.Transacao;
+import com.tools.payment.repositories.TransacaoRepository;
+
+@Service
+public class TransacaoService {
+
+    private final TransacaoRepository transacaoRepository;
+
+    public TransacaoService(TransacaoRepository transacaoRepository) {
+        this.transacaoRepository = transacaoRepository;
+    }
+
+    public Transacao salvarTransacao(TransacaoDTO transacaoDTO) {
+        Transacao transacao = new Transacao(
+                transacaoDTO.getCartao(),
+                transacaoDTO.getTipo(),
+                transacaoDTO.getParcelas(),
+                transacaoDTO.getValor(),
+                transacaoDTO.getStatus(),
+                transacaoDTO.getDataHora(),
+                transacaoDTO.getEstabelecimento()
+        );
+        return transacaoRepository.save(transacao);
+    }
+}

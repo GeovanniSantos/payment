@@ -1,0 +1,42 @@
+package com.tools.payment.controller;
+
+import java.net.URI;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import com.tools.payment.entities.Transacao;
+
+@RestController
+@RequestMapping("/transacao")
+public class TransacaoController {
+
+    @Autowired
+    private TransacaoRepository transacaoRepository;
+
+    @PostMapping
+    public ResponseEntity<Transacao> postTransacao(@Valid @RequestBody Transacao transacao) {
+        transacaoRepository.save(transacao);
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(transacao.getId())
+                .toUri();
+        return ResponseEntity.created(location).body(transacao);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Transacao> getTransacao(@PathVariable Long id) {
+        Optional<Transacao> optional = transacaoRepository.findById(id);
+        return optional.map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+}
+

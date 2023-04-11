@@ -1,0 +1,5 @@
+package com.tools.payment.config;
+
+public class ModelMapperConfig {
+
+}

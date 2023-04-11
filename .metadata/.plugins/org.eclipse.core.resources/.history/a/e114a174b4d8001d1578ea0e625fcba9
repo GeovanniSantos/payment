@@ -1,0 +1,81 @@
+package com.tools.payment.entities;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
+
+@Entity
+public class Transacao {
+
+    @Id
+    private String id;
+    private String cartao;
+    private BigDecimal valor;
+    private LocalDateTime dataHora;
+    private String estabelecimento;
+
+    @OneToOne(mappedBy = "transacao", cascade = CascadeType.ALL)
+    private FormaPagamento formaPagamento;
+
+    public Transacao() {}
+
+    public Transacao(String id, String cartao, BigDecimal valor, LocalDateTime dataHora, String estabelecimento) {
+        this.id = id;
+        this.cartao = cartao;
+        this.valor = valor;
+        this.dataHora = dataHora;
+        this.estabelecimento = estabelecimento;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getCartao() {
+        return cartao;
+    }
+
+    public void setCartao(String cartao) {
+        this.cartao = cartao;
+    }
+
+    public BigDecimal getValor() {
+        return valor;
+    }
+
+    public void setValor(BigDecimal valor) {
+        this.valor = valor;
+    }
+
+    public LocalDateTime getDataHora() {
+        return dataHora;
+    }
+
+    public void setDataHora(LocalDateTime dataHora) {
+        this.dataHora = dataHora;
+    }
+
+    public String getEstabelecimento() {
+        return estabelecimento;
+    }
+
+    public void setEstabelecimento(String estabelecimento) {
+        this.estabelecimento = estabelecimento;
+    }
+
+    public FormaPagamento getFormaPagamento() {
+        return formaPagamento;
+    }
+
+    public void setFormaPagamento(FormaPagamento formaPagamento) {
+        this.formaPagamento = formaPagamento;
+    }
+}

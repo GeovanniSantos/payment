@@ -1,0 +1,16 @@
+package com.tools.payment.entities;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+public class Descricao {
+
+    private BigDecimal valor;
+    private LocalDateTime dataHora;
+    private String estabelecimento;
+
+    // construtores, getters e setters
+    
+    
+}
+

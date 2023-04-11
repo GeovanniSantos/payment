@@ -1,0 +1,11 @@
+package com.tools.payment.services;
+
+import com.tools.payment.entities.Transacao;
+
+public class TransacaoService{
+
+	public Object salvarTransacao(Transacao transacao) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

@@ -1,0 +1,15 @@
+package com.tools.payment.entities;
+
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+
+public class FormaPagamento {
+
+    @Enumerated(EnumType.STRING)
+    private TipoPagamento tipo;
+
+    private Integer parcelas;
+
+    // construtores, getters e setters
+}
+

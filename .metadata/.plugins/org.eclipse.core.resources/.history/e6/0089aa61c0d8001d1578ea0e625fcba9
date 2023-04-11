@@ -1,0 +1,14 @@
+package com.tools.payment.services;
+
+import org.springframework.stereotype.Service;
+
+import com.tools.payment.entities.Transacao;
+
+@Service
+public class TransacaoService{
+
+	public Object salvarTransacao(Transacao transacao) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

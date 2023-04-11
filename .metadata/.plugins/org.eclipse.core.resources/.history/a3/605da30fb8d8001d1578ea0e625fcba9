@@ -1,0 +1,52 @@
+package com.tools.payment.entities;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+import jakarta.persistence.Column;
+
+public class Descricao {
+	
+	@Column(name = "descricao", columnDefinition = "VARCHAR(255)")
+	private String descricao;
+	
+    private BigDecimal valor;
+    private LocalDateTime dataHora;
+    private String estabelecimento;
+    
+	public Descricao(String descricao, BigDecimal valor, LocalDateTime dataHora, String estabelecimento) {
+		super();
+		this. descricao = descricao;
+		this.valor = valor;
+		this.dataHora = dataHora;
+		this.estabelecimento = estabelecimento;
+	}
+	
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public BigDecimal getValor() {
+		return valor;
+	}
+	public void setValor(BigDecimal valor) {
+		this.valor = valor;
+	}
+	public LocalDateTime getDataHora() {
+		return dataHora;
+	}
+	public void setDataHora(LocalDateTime dataHora) {
+		this.dataHora = dataHora;
+	}
+	public String getEstabelecimento() {
+		return estabelecimento;
+	}
+	public void setEstabelecimento(String estabelecimento) {
+		this.estabelecimento = estabelecimento;
+	}
+}
+
