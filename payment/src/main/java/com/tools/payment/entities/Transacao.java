@@ -1,11 +1,14 @@
 package com.tools.payment.entities;
 
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name="transacao")
 public class Transacao {
 
     @Id
@@ -14,7 +17,11 @@ public class Transacao {
 
     private String cartao;
     private String transacaoId;
+    
+    @Embedded
     private Descricao descricao;
+    
+    @Embedded
     private FormaPagamento formaPagamento;
     
 	public Transacao() {

@@ -1,0 +1,44 @@
+package com.tools.payment.entities;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.OneToOne;
+
+@Embeddable
+public class Descricao {
+	
+	@OneToOne
+	private Transacao transacao;
+	
+    private BigDecimal valor;
+    private LocalDateTime dataHora;
+    private String estabelecimento;
+    
+	public Descricao(BigDecimal valor, LocalDateTime dataHora, String estabelecimento) {
+		this.valor = valor;
+		this.dataHora = dataHora;
+		this.estabelecimento = estabelecimento;
+	}
+	
+	public BigDecimal getValor() {
+		return valor;
+	}
+	public void setValor(BigDecimal valor) {
+		this.valor = valor;
+	}
+	public LocalDateTime getDataHora() {
+		return dataHora;
+	}
+	public void setDataHora(LocalDateTime dataHora) {
+		this.dataHora = dataHora;
+	}
+	public String getEstabelecimento() {
+		return estabelecimento;
+	}
+	public void setEstabelecimento(String estabelecimento) {
+		this.estabelecimento = estabelecimento;
+	}
+}
+

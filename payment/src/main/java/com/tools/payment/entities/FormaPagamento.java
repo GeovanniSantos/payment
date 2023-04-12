@@ -12,6 +12,9 @@ public class FormaPagamento {
     private Tipo tipo;
     private Integer parcelas;
 
+	public FormaPagamento() {
+	}
+
 	public FormaPagamento(Tipo tipo, Integer parcelas) {
 		this.tipo = tipo;
 		this.parcelas = parcelas;

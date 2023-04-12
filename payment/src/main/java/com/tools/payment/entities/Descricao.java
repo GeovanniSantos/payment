@@ -1,7 +1,9 @@
 package com.tools.payment.entities;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Embeddable;
 
@@ -9,10 +11,15 @@ import jakarta.persistence.Embeddable;
 public class Descricao {
 	
     private BigDecimal valor;
-    private LocalDateTime dataHora;
+    
+    @DateTimeFormat(pattern = "dd/mm/yyyy hh:mm:ss")
+    private Date dataHora;
     private String estabelecimento;
     
-	public Descricao(BigDecimal valor, LocalDateTime dataHora, String estabelecimento) {
+	public Descricao() {
+	}
+
+	public Descricao(BigDecimal valor, Date dataHora, String estabelecimento) {
 		this.valor = valor;
 		this.dataHora = dataHora;
 		this.estabelecimento = estabelecimento;
@@ -24,10 +31,10 @@ public class Descricao {
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
-	public LocalDateTime getDataHora() {
+	public Date getDataHora() {
 		return dataHora;
 	}
-	public void setDataHora(LocalDateTime dataHora) {
+	public void setDataHora(Date dataHora) {
 		this.dataHora = dataHora;
 	}
 	public String getEstabelecimento() {

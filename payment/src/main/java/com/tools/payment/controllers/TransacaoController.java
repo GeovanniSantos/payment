@@ -18,11 +18,6 @@ public class TransacaoController{
 	@Autowired
 	private TransacaoService transacaoService;
 	
-	/*@PostMapping
-	public Transacao adicionar(@RequestBody Transacao transacao) {
-		return transacaoRepository.save(transacao);
-	}*/
-	
 	@PostMapping
 	public ResponseEntity<Transacao> adicionar(@RequestBody Transacao transacao){
 		return ResponseEntity.status(HttpStatus.CREATED).body(transacaoService.salvarTransacao(transacao));
