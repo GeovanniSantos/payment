@@ -1,9 +1,8 @@
 package com.tools.payment.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -11,12 +10,11 @@ import jakarta.persistence.Table;
 @Table(name="transacao")
 public class Transacao {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     private String cartao;
-    private String transacaoId;
+    
+    @Id
+    @Column(name = "id", nullable = false, unique = true)
+    private Long id;
     
     @Embedded
     private Descricao descricao;
@@ -30,7 +28,6 @@ public class Transacao {
 	public Transacao(Long id, String cartao, String transacaoId, Descricao descricao, FormaPagamento formaPagamento) {
 		this.id = id;
 		this.cartao = cartao;
-		this.transacaoId = transacaoId;
 		this.descricao = descricao;
 		this.formaPagamento = formaPagamento;
 	}
@@ -49,14 +46,6 @@ public class Transacao {
 
 	public void setCartao(String cartao) {
 		this.cartao = cartao;
-	}
-
-	public String getTransacaoId() {
-		return transacaoId;
-	}
-
-	public void setTransacaoId(String transacaoId) {
-		this.transacaoId = transacaoId;
 	}
 
 	public Descricao getDescricao() {

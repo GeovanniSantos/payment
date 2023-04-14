@@ -2,11 +2,24 @@
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="com.tools.payment.entities.Transacao"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Embedded"/>
-    <fullyQualifiedTypeName name="com.tools.payment.repositories.TransacaoRepository"/>
     <fullyQualifiedTypeName name="com.tools.payment.enums.TipoPagamentoEnum"/>
     <fullyQualifiedTypeName name="com.tools.payment.services.TransacaoService"/>
-    <fullyQualifiedTypeName name="java.util.Date"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.Table"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.EnumType"/>
+    <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.CascadeType"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Id"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.EnumType"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
+    <fullyQualifiedTypeName name="com.tools.payment.repositories.TransacaoRepository"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Table"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.data.domain.Pageable"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
+    <fullyQualifiedTypeName name="java.util.Optional"/>
+    <fullyQualifiedTypeName name="com.tools.payment.enums.Status"/>
+    <fullyQualifiedTypeName name="com.tools.payment.entities.Descricao"/>
 </qualifiedTypeNameHistroy>

@@ -1,0 +1,25 @@
+package com.tools.payment.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+
+import com.tools.payment.entities.Transacao;
+import com.tools.payment.repositories.TransacaoRepository;
+
+@Service
+public class TransacaoService{
+
+	@Autowired
+	private TransacaoRepository transacaoRepository;
+	 
+	public Transacao salvarTransacao(Transacao transacao) {
+	return transacaoRepository.save(transacao);
+	}
+
+	public Page<Transacao> listarTodos(Pageable pageable) {
+		Page<Transacao> lista = transacaoRepository.findAll(pageable);
+	return lista.map(x -> new Transacao());
+	}
+}
